@@ -11,5 +11,5 @@ node app
 
 and find the examples at:
 
-[http://localhost:3000/]()
+[http://localhost:3000/](http://localhost:3000/)
 
