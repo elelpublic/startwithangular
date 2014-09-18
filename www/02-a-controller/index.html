@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Getting started with Angularjs</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+		<script src="/angularjs/angular.js"></script>
+		<script>
+			function MyController( $scope ) {
+				
+				// initialization
+				window.setInterval( function() {
+					$scope.currentTime = new Date();
+					$scope.$apply(); // commit changed data model to angular
+				}, 1000 ); 
+				
+				$scope.message = "";
+				
+				// add methods
+				$scope.submit = function() {
+					if( $scope.amount ) {
+						$scope.message = "Sending " + $scope.amount + " Euros @ " + $scope.currentTime.toLocaleString();
+						$scope.level = "success";
+					}
+					else {
+						$scope.message = "Please enter an amount";
+						$scope.level = "warning";
+					}
+					// show the alert element:
+					angular.element( document.getElementById( "myAlert" ) ).attr( "style", "display: inline;" );
+				}
+				
+			}
+		</script>
+  </head>
+  <body ng-controller="MyController" >
+	  <div class="container">
+	  	<div class="row">
+	  		<p></p>
+	  		<a class="btn btn-default" href=".."><span class="glyphicon glyphicon-home"></span> Home</a>
+	  	</div>
+	  	<div class="row">
+		  	<h1>
+		  		A controller
+		  	</h1>
+	  	</div>
+	  	<div class="row">
+	  		<p>
+	  			Current time: {{currentTime.toLocaleString()}}
+	  		<p>
+	  	</div>
+	  	<div class="row">
+	  		<form role="form">
+				  <div class="form-group">
+				    <label for="amountField">Pay amount</label>
+				    <input ng-model="amount" id="amountField" placeholder="Euros" class="form-control" autofocus>
+				  </div>
+				</form>
+	  	</div>
+	  	<div class="row">
+	  		<p>
+	  			<!-- simple button that calls submit() in the model -->
+	  			<a href="" class="btn btn-primary" ng-click="submit()">
+	  				<span class="glyphicon glyphicon-ok"></span>
+	  				Confirm
+	  			</a>
+	  		</p>
+	  	</div>
+	  	<div class="row" >
+	  		<p>
+	  			<!-- this is invisible by default: -->
+					<div id="myAlert" class="alert alert-{{level}}" role="alert" style="display:none;">{{message}}</div>	  		
+				</p>
+	  	</div>
+		</div>
+  </body>
+</html>
