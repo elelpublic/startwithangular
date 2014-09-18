@@ -3,6 +3,17 @@ startwithangular
 
 Samples on how to use angularjs.
 
+Install
+-------
+
+``
+npm install
+bower install
+``
+
+Run
+---
+
 To start a webserver and try the examples there, just call:
 
 ``

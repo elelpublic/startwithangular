@@ -1,0 +1,21 @@
+{
+  "name": "startwithangular",
+  "version": "1.0.0",
+  "homepage": "https://github.com/larsfrommars/startwithangular",
+  "authors": [
+    "larsfrommars <larsfrommars@gmail.com>"
+  ],
+  "description": "Samples on how to use angularjs.",
+  "license": "LGPL 2.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angularjs": "~1.2.25"
+  }
+}
