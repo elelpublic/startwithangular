@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.2.0",
-    "angularjs": "~1.2.25"
+    "angularjs": "~1.2.25",
+    "angular-route": "~1.2.25"
   }
 }

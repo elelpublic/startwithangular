@@ -3,11 +3,23 @@ startwithangular
 
 Samples on how to use angularjs.
 
+Software
+--------
+
+You need nodejs, npm and bower installed.
+
 Install
 -------
 
+Install dependencies for backend:
+
 ``
 npm install
+``
+
+Install dependencies for frontend:
+
+``
 bower install
 ``
 

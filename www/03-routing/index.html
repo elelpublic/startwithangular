@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myRouteApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Getting started with Angularjs</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+		<script src="/angularjs/angular.js"></script>
+		<script src="/angular-route/angular-route.js"></script>
+		<script >
+			
+			// ngRoute "importieren"
+			var myRouteApp = angular.module( 'myRouteApp', [ 'ngRoute' ] );
+		
+			// Zugriff auf $routeProvider mittels angular dependency injection:
+			myRouteApp.config( function( $routeProvider ) {
+				
+				// routes definieren
+				$routeProvider.when( '/', {
+					template: '<h1>Main</h1>',
+					controller: 'MainController'
+				}).when( '/books', {
+					template: '<h1>Books</h1>',
+					controller: 'BooksController'
+				}).when( '/books/:bookId', {
+					template: '<h1>Book</h1>',
+					controller: 'BookController'
+				});
+				
+			});
+			
+			myRouteApp.controller('MainController', function( $scope ) {} );
+			myRouteApp.controller('BooksController', function( $scope ) {} );
+			myRouteApp.controller('BookController', function( $scope ) {} );
+		
+		</script>
+  </head>
+  <body>
+	  <div class="container">
+	  	<div class="row">
+	  		<br />
+  			<a class="btn btn-default" href=".."><span class="glyphicon glyphicon-home"></span> Home</a>
+	  	</div>
+	  	<div class="row">
+		  	<h1>
+		  		Routing
+		  	</h1>
+	  	</div>
+	  	<div class="row">
+	  		<br />
+  			<a href="#/" class="btn btn-default">Main</a>
+  			<a href="#/books" class="btn btn-default">Books</a>
+  			<a href="#/books/4711" class="btn btn-default">Book</a>
+			</div>
+	  	<div class="row">
+	  		<br />
+		  	<div class="col-md-12">
+	  			<div class="jumbotron">
+	  				<div ng-view></div>
+	  			</div>
+  			</div>
+			</div>
+		</div>
+  </body>
+</html>
