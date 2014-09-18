@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Getting started with Angularjs</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+		<script src="/angularjs/angular.js"></script>
+  </head>
+  <body>
+	  <div class="container">
+	  	<div class="row">
+	  		<br/>
+  			<a class="btn btn-default" href=".."><span class="glyphicon glyphicon-home"></span> Home</a>
+	  	</div>
+	  	<div class="row">
+		  	<h1>
+		  		Templates
+		  	</h1>
+	  	</div>
+	  	<div class="row">
+	  	
+	  		<!--
+	  			ng-includes needs an angular expression, so don't forget to
+	  			put the url in ' signs 
+	  		 -->
+	  		<div ng-include="'/04-templates/template1.html'"></div>
+	  		
+	  	</div>
+	  	
+		</div>
+  </body>
+</html>
