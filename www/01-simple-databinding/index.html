@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="app">
+
   <head>
+  
     <meta charset="utf-8">
     <title>Getting started with Angularjs</title>
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
 		<script src="/angularjs/angular.js"></script>
+		
+		<!-- CodeMirror used to display the source code -->
+		<script src="/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/codemirror/lib/codemirror.css" />
+    <script src="/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    <script src="/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/codemirror/mode/xml/xml.js"></script>
+    <link rel="stylesheet" href="/helper/helper.css" />
+		<script src="/helper/helper.js"></script>
+		<script>
+			var app = angular.module( 'app', [] );
+			createFileDirective( app ); // registers a "file" directive to easily use CodeMirror
+		</script>
+		
   </head>
   <body>
 	  <div class="container">
@@ -31,5 +47,17 @@
 		  	 </h1>
 	  	</div>
 		</div>
+		
+		<hr />
+		
+	  <div class="container sourceArea">
+	  	<div class="row">
+	  		<br/>
+				Source code
+	  		<br/>
+				<textarea codemirror file="'index.html'"></textarea>
+			</div>
+		</div>
+		
   </body>
 </html>

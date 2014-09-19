@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+  <head>
+    <meta charset="utf-8">
+    <title>Getting started with Angularjs</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/my.css" />
+		<script src="/angularjs/angular.js"></script>
+		
+		<!-- used to display the source code -->
+		<script src="/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/codemirror/lib/codemirror.css" />
+    <script src="/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    
+    <script>
+    	var app = angular.module( 'myapp', [] );
+	    app.directive('ngLorem', function() {
+	    	  return {
+	    	    restrict: 'A',
+	    	    template: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua'
+	    	  }
+	    	});
+    </script>
+		
+  </head>
+  <body>
+  
+	  <div class="container">
+	  	<div class="row">
+	  		<br/>
+  			<a class="btn btn-default" href=".."><span class="glyphicon glyphicon-home"></span> Home</a>
+	  	</div>
+	  	<div class="row">
+		  	<h1>
+		  		Custom directives
+		  	</h1>
+	  	</div>
+	  	<div class="row">
+	  		I write <b>ng-lorem</b> but I see <b><span ng-lorem></span><b>.
+	  	</div>
+		</div>
+		
+  </body>
+</html>

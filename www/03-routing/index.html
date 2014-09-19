@@ -22,7 +22,7 @@
 					template: '<h1>Books</h1>',
 					controller: 'BooksController'
 				}).when( '/books/:bookId', {
-					template: '<h1>Book</h1>',
+					template: '<h1>Book {{bookId}}</h1>',
 					controller: 'BookController'
 				});
 				
@@ -30,7 +30,9 @@
 			
 			myRouteApp.controller('MainController', function( $scope ) {} );
 			myRouteApp.controller('BooksController', function( $scope ) {} );
-			myRouteApp.controller('BookController', function( $scope ) {} );
+			myRouteApp.controller('BookController', function( $scope, $routeParams ) {
+				$scope.bookId = $routeParams.bookId;
+			});
 		
 		</script>
   </head>
@@ -49,10 +51,11 @@
 	  		<br />
   			<a href="#/" class="btn btn-default">Main</a>
   			<a href="#/books" class="btn btn-default">Books</a>
-  			<a href="#/books/4711" class="btn btn-default">Book</a>
+  			<a href="#/books/0815" class="btn btn-default">Book 0815</a>
+  			<a href="#/books/4711" class="btn btn-default">Book 4711</a>
 			</div>
+	  	<div class="row"><div class="col-md-12">&nbsp;</div></div>
 	  	<div class="row">
-	  		<br />
 		  	<div class="col-md-12">
 	  			<div class="jumbotron">
 	  				<div ng-view></div>
@@ -60,5 +63,26 @@
   			</div>
 			</div>
 		</div>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Schritte</h1>
+					<ol ng-non-bindable>
+						<li>angular-route.js importieren</li>
+						<li>'ngRoute' als Dependency in der app anmelden</li>
+						<li>app.config mit $routeProvider aufrufen</li>
+						<li>jede URL mit $routeProvider.when(...) anmelden</li>
+						<li>Links auf die URLs in die HTML-Seite</li>
+						<li>ein div mit ng-view auf die HTML-Seite</li>
+						<li>die bei when(...) benutzen Controller erzeugen: app.controller(...)</li>
+						<li>die bei when(...) benutzen HTML-Partials anlegen</li>
+						<li>URL-Parameter, wie ":name" können im Controller per $routeParams.name abgefragt werden</li>
+						<li>Tip: in den $scrope übertragen: $scope.name = $routeParams.name, dann mit {{name}} verwenden</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		
   </body>
 </html>
