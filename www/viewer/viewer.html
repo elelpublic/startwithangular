@@ -7,50 +7,19 @@
     <link rel="stylesheet" href="viewer.css" />
     <script src="/angularjs/angular.js"></script>
     <script src="/angular-route/angular-route.js"></script>
-    <script>
-    	var viewerApp = angular.module( 'viewerApp', [ 'ngRoute' ] );
-    	
-			// Zugriff auf $routeProvider mittels angular dependency injection:
-			viewerApp.config( function( $routeProvider ) {
-				
-				// routes definieren
-				$routeProvider.when( '/', {
-					templateUrl: 'menu.html',
-					controller: 'MenuController'
-				}).when( '/:exampleId', {
-					templateUrl: 'example.html',
-					controller: 'ExampleController'
-				});
-				
-			});
-			
-			viewerApp.controller('MenuController', function( $scope ) {} );
-			viewerApp.controller('ExampleController', function( $scope, $routeParams ) {
-				$scope.exampleId = $routeParams.exampleId;
-			});
-
-    </script>
+    <script src="viewer.js"></script>
+    
+ 		<!-- CodeMirror used to display the source code -->
+		<script src="/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/codemirror/lib/codemirror.css" />
+    <script src="/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    <script src="/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/codemirror/mode/xml/xml.js"></script>
+    
   </head>
+
   <body>
-  
-  	<a href="#/" >Menu</a> 
-  	<a href="#/1" >Example 1</a> 
-  	<a href="#/2" >Example 2</a> 
-  
   	<div ng-view></div>
-  <!-- 
-  	<div class="container-fluid">
-  		<div class="row">
-  			<div class="col-md-12">
-			  	<h1>Viewer</h1>
-  			</div>
-  		</div>
-  		<div class="row">
-  			<div class="col-md-6">
-		  		<iframe ng-src="/02-a-controller/index.html" class="runWindow" ></iframe>
-		  	</div>
-  		</div>
-  	</div>
-   -->
   </body>
+
 </html>

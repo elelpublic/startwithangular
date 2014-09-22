@@ -1,0 +1,32 @@
+[
+	{
+		"path": "01-simple-databinding",
+		"title": "01 - Simple Databinding",
+		"extra-files": []
+	},
+	{
+		"path": "02-a-controller",
+		"title": "02 - A controller",
+		"extra-files": []
+	},
+	{
+		"path": "03-routing",
+		"title": "03 - Routing",
+		"extra-files": []
+	},
+	{
+		"path": "04-templates",
+		"title": "04 - Templates",
+		"extra-files": []
+	},
+	{
+		"path": "05-custom-directives",
+		"title": "05 - Custom directives",
+		"extra-files": []
+	},
+	{
+		"path": "06-loading-data",
+		"title": "06 - Loading data",
+		"extra-files": []
+	}
+]

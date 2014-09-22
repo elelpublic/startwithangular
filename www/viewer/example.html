@@ -1,1 +1,31 @@
-Example {{exampleId}}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>
+				<span class="label label-default">{{example.title}}</span>
+				<a class="btn btn-default" href="#/"><span class="glyphicon glyphicon-home"></span> Home</a>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<iframe src="{{exampleUrl}}" class="exampleRun"></iframe>
+		</div>
+	</div>
+</div>
+
+<div class="container sourceArea">
+ 	<div class="row">
+  	<div class="col-md-12">
+			Source code <b>{{exampleFile}}</b>
+	 		<br/>
+			<textarea codemirror file="exampleFile"></textarea>
+		</div>
+	</div>
+</div>
+
