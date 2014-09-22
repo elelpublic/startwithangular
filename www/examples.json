@@ -28,5 +28,15 @@
 		"path": "06-loading-data",
 		"title": "06 - Loading data",
 		"extra-files": []
+	},
+	{
+		"path": "07-expressions",
+		"title": "07 - Expressions",
+		"extra-files": []
+	},
+	{
+		"path": "08-filters",
+		"title": "08 - Filters",
+		"extra-files": []
 	}
 ]

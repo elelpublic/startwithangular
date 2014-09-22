@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+  <head>
+  
+    <meta charset="utf-8">
+    <title>Getting started with Angularjs</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+		<script src="/angularjs/angular.js"></script>		
+
+		<script>
+
+			function MyController( $scope ) {
+
+				$scope.text1 = 'You can set the scope in the controller ...';
+				
+				// manually evaluate angularjs expression:
+				$scope.text3 = $scope.$eval( "text1+' (adding some text here)'" );
+				
+			}
+			
+			
+		</script>
+		
+  </head>
+  <body ng-controller="MyController">
+  
+	  <table border="1" ng-init="text2='... or in ng-init';">
+	  	<tr>
+	  		<th>Expression</th>
+	  		<th>Result</th>
+	  	</tr>
+	  	<tr>
+	  		<td><span ng-non-bindable>{{text1}}</span></td>
+	  		<td>{{text1}}</td>
+	  	</tr>
+	  	<tr>
+	  		<td><span ng-non-bindable>{{text2}}</span></td>
+	  		<td>{{text2}}</td>
+	  	</tr>
+	  	<tr>
+	  		<td><span ng-non-bindable><span ng-non-bindable>$scope.text3 = $scope.$eval( "text1+' (adding some text here)'" );</span></span> => {{text1}}</td>
+	  		<td>{{text3}}</td>
+	  	</tr>
+		</table>
+		
+  </body>
+</html>
