@@ -8,7 +8,12 @@ viewerApp.config( function( $routeProvider ) {
     controller: 'MenuController'
   }).when( '/:exampleId', {
     templateUrl: 'example.html',
-    controller: 'ExampleController'
+    controller: 'ExampleController',
+    resolve: {
+      example: function( examples, $route ) {
+        return examples.find2( $route.current.params.exampleId );
+      }
+    }
   });
   
 });
@@ -16,12 +21,16 @@ viewerApp.config( function( $routeProvider ) {
 // create a service for loading json here ...
 viewerApp.factory( 'examples', function( $http ) {
   
-  function getData(callback){
-    $http({
+  function getPromise() {
+    return $http({
       method: 'GET',
       url: '../examples.json',
       cache: true
-    }).success(callback);
+    });
+  };
+  
+  function getData(callback){
+    getPromise().success(callback);
   }
 
   return {
@@ -35,6 +44,18 @@ viewerApp.factory( 'examples', function( $http ) {
           }
         } 
       });
+    },
+    // this returns a promise
+    find2: function( examplePath ) {
+      return getPromise().then(function( response ) {
+        var data = response.data;
+        for( var i = 0; i < data.length; i++ ) {
+          var example = data[ i ];
+          if( example.path == examplePath ) {
+            return example;
+          }
+        }
+      });
     }
   };
    
@@ -47,13 +68,18 @@ viewerApp.controller('MenuController', function( $scope, $http, examples ) {
   });
 });
 
-viewerApp.controller('ExampleController', function( $scope, $routeParams, examples ) {
-  examples.find( $routeParams.exampleId, function( example ) {
+viewerApp.controller('ExampleController', [ '$scope', 'example', function( $scope, example ) {
+  $scope.example = example;
+  $scope.exampleFile = '../' + example.path + "/index.html";
+  $scope.exampleUrl = '../' + example.path;
+  /*
+  examples.find( $routeParams.., function( example ) {
+    $scope.exampleFile = '../' + example.path + "/index.html";
     $scope.example = example;
     $scope.exampleUrl = '../' + example.path;
-    $scope.exampleFile = '../' + example.path + "/index.html";
   });
-});
+  */
+}]);
 
 /**
  * The `file` directive loads the content of an 

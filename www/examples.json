@@ -27,7 +27,7 @@
 	{
 		"path": "06-loading-data",
 		"title": "06 - Loading data",
-		"extra-files": []
+		"extra-files": [ "books.json" ]
 	},
 	{
 		"path": "07-expressions",
