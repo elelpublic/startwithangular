@@ -70,15 +70,9 @@ viewerApp.controller('MenuController', function( $scope, $http, examples ) {
 
 viewerApp.controller('ExampleController', [ '$scope', 'example', function( $scope, example ) {
   $scope.example = example;
-  $scope.exampleFile = '../' + example.path + "/index.html";
   $scope.exampleUrl = '../' + example.path;
-  /*
-  examples.find( $routeParams.., function( example ) {
-    $scope.exampleFile = '../' + example.path + "/index.html";
-    $scope.example = example;
-    $scope.exampleUrl = '../' + example.path;
-  });
-  */
+  $scope.exampleFile = "index.html";
+  $scope.extraFiles = example.extraFiles;
 }]);
 
 /**

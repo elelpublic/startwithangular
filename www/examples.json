@@ -2,41 +2,41 @@
 	{
 		"path": "01-simple-databinding",
 		"title": "01 - Simple Databinding",
-		"extra-files": []
+		"extraFiles": []
 	},
 	{
 		"path": "02-a-controller",
 		"title": "02 - A controller",
-		"extra-files": []
+		"extraFiles": []
 	},
 	{
 		"path": "03-routing",
 		"title": "03 - Routing",
-		"extra-files": []
+		"extraFiles": []
 	},
 	{
 		"path": "04-templates",
 		"title": "04 - Templates",
-		"extra-files": []
+		"extraFiles": []
 	},
 	{
 		"path": "05-custom-directives",
 		"title": "05 - Custom directives",
-		"extra-files": []
+		"extraFiles": []
 	},
 	{
 		"path": "06-loading-data",
 		"title": "06 - Loading data",
-		"extra-files": [ "books.json" ]
+		"extraFiles": [ "books.json" ]
 	},
 	{
 		"path": "07-expressions",
 		"title": "07 - Expressions",
-		"extra-files": []
+		"extraFiles": []
 	},
 	{
 		"path": "08-filters",
 		"title": "08 - Filters",
-		"extra-files": []
+		"extraFiles": []
 	}
 ]
