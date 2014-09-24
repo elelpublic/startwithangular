@@ -38,5 +38,10 @@
 		"path": "08-filters",
 		"title": "08 - Filters",
 		"extraFiles": []
+	},
+	{
+		"path": "09-promises",
+		"title": "09 - Promises",
+		"extraFiles": []
 	}
 ]

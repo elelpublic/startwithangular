@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+  <head>
+  
+    <meta charset="utf-8">
+    <title>Getting started with Angularjs</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+		<script src="/angularjs/angular.js"></script>
+		
+  </head>
+  <body ng-controller="myController" ng-init="message='Click to start'">
+  
+  	<div class="container">
+  		<div class="row"><div class="col-md-12">
+  			<h3>Result</h3>
+		  	<pre>{{message}}</pre>
+  		</div></div>
+  		<div class="row"><div class="col-md-12">
+		  	<a href="" ng-click="startDeep()" class="btn btn-default">Load deep chain</a>
+		  	<a href="" ng-click="startAll()" class="btn btn-default">Load all</a>
+		  	<a href="" ng-click="startLong()" class="btn btn-default">Load long running</a>
+  		</div></div>
+  		<div class="row"><div class="col-md-12">
+  			<h3>Log</h3>
+		  	<pre>{{log}}</pre>
+  		</div></div>
+  	</div>
+
+  	<script>
+  		
+  		var app = angular.module( 'myApp', [] );
+  		
+  		app.controller( 'myController', function( $scope, $q, $rootScope ) {
+  			
+  			function loadMessage( time, level ) {
+  				
+  				var d = $q.defer();
+	  			
+	  			setTimeout( function() {
+	  				var message = 'Hello Underworld, level ' + level;
+	  				$scope.log = $scope.log + '\n' + message;
+  					d.resolve( message );
+	  			}, time );
+	  			
+	  			return d.promise;
+	  			
+  			};
+  			
+  			function loadLongRunning() {
+  				
+  				var d = $q.defer();
+	  			
+	  			setTimeout( function() {
+
+	  				loadMessage( 400, 1 )
+	  					.then( function() {
+	  						d.notify( '1' );
+	  						return loadMessage( 400, 2 )
+	  					})
+	  					.then( function() {
+	  						d.notify( '2' );
+	  						return loadMessage( 400, 3 )
+	  					})
+	  					.then( function( data ) {
+	  						d.notify( '3' );
+	  						return loadMessage( 400, 3 )
+	  					})
+	  					.then( function( data ) {
+			  				d.resolve( 'Finished' );
+	  					});
+	  			}, 100 );
+	  			
+	  			return d.promise;
+	  			
+  			};
+  			
+  			$scope.startDeep = function() {
+  				
+  				$scope.log = '';
+  				$scope.message = 'Loading deep ...';
+  				
+  				loadMessage( 200, 1 )
+  					.then( function() {
+  						return loadMessage( 400, 2 )
+  					})
+  					.then( function() {
+  						return loadMessage( 800, 3 )
+  					})
+  					.then( function( data ) {
+  						$scope.message = data;
+  					})
+  				
+  			};
+
+  			$scope.startAll = function() {
+  				
+  				$scope.log = '';
+  				$scope.message = 'Loading all ...';
+  				
+  				$q.all({
+  					p1: loadMessage( 200, 1 ),
+  					p2: loadMessage( 400, 2 ),
+  					p3: loadMessage( 800, 3 )
+  				}).then( function( data ) {
+  						$scope.message = data;
+  				});
+  				
+  			};
+  				
+  			$scope.startLong = function() {
+  				
+  				$scope.log = '';
+  				$scope.message = 'Loading long running ...';
+  				loadLongRunning().then( function( data ) {
+  					$scope.message = data;
+  				}, null, function( data ) {
+  					var message = 'Step ' + data;
+  					$scope.log = $scope.log + '\n' + message;
+  					$scope.message = message;
+  				});
+  				
+  			};
+  				
+  		});
+  	
+  	</script>
+		
+  </body>
+</html>
