@@ -17,7 +17,7 @@
 	{
 		"path": "04-templates",
 		"title": "04 - Templates",
-		"extraFiles": []
+		"extraFiles": [ "template1.html" ]
 	},
 	{
 		"path": "05-custom-directives",
