@@ -1,52 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="viewerApp">
   <head>
     <meta charset="utf-8">
-    <title>Getting started with Angularjs</title>
+    <title>Examples</title>
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="viewer.css" />
+    <script src="/angularjs/angular.js"></script>
+    <script src="/angular-route/angular-route.js"></script>
+    <script src="viewer.js"></script>
+    
+ 		<!-- CodeMirror used to display the source code -->
+		<script src="/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/codemirror/lib/codemirror.css" />
+    <script src="/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    <script src="/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/codemirror/mode/xml/xml.js"></script>
+    
   </head>
+
   <body>
-  	<div class="container">
-  		<div class="row">
-		  	<h1>
-		  		Getting started with Angularjs
-		  	</h1>
-  		</div>
-  		<div class="row">
-  			<p>
-					<a href="01-simple-databinding/index.html" class="btn btn-default">1 - Simple databinding</a>
-				</p>
-			</div>
-  		<div class="row">
-  			<p>
-					<a href="02-a-controller/index.html" class="btn btn-default">2 - A controller</a>
-				</p>
-			</div>
-  		<div class="row">
-  			<p>
-					<a href="03-routing/index.html" class="btn btn-default">3 - Routing</a>
-				</p>
-			</div>
-  		<div class="row">
-  			<p>
-					<a href="04-templates/index.html" class="btn btn-default">4 - Templates</a>
-				</p>
-			</div>
-  		<div class="row">
-  			<p>
-					<a href="05-custom-directives/index.html" class="btn btn-default">5 - Custom directives</a>
-				</p>
-			</div>
-  		<div class="row">
-  			<p>
-					<a href="06-loading-data/index.html" class="btn btn-default">6 - Loading data</a>
-				</p>
-			</div>
-  		<div class="row">
-  			<p>
-					<a href="viewer/viewer.html" class="btn btn-default">Viewer</a>
-				</p>
-			</div>
-		</div>  	
+  	<div ng-view></div>
   </body>
+
 </html>
